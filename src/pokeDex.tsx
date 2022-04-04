@@ -20,12 +20,12 @@ export default () => {
                 stat: {
                     name: ""
                 }
-            },{
+            }, {
                 base_stat: "",
                 stat: {
                     name: ""
                 }
-            },{
+            }, {
                 base_stat: "",
                 stat: {
                     name: ""
@@ -41,13 +41,13 @@ export default () => {
     const fetchPokemons = async () => {
         const pokemonId = generateRandomIntegerInRange(1, 898);
         await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-        .then(function (response) {
-            setPokemon(response);
-        }).catch(function (error) {
-            // handle error
-            console.log(error);
-        });;
-            
+            .then(function (response) {
+                setPokemon(response);
+            }).catch(function (error) {
+                // handle error
+                console.log(error);
+            });;
+
     };
 
     const onSubmit = async (event: any) => {
@@ -70,16 +70,20 @@ export default () => {
         <div className="container h-100">
             <div className="row align-items-center mt-5">
                 <div className="col-4 mx-auto">
-                    <form onSubmit={onSubmit}>
-                        <div className="form-group">
-                            <label>Pokemon</label>
-                            <input
-                                value={pokemonName}
-                                onChange={e => setPokemonName(e.target.value)}
-                                className="form-control"></input>
+                    <div className="card">
+                        <div className="card-body">
+                            <form onSubmit={onSubmit}>
+                                <div className="form-group">
+                                    <label>Pokemon</label>
+                                    <input
+                                        value={pokemonName}
+                                        onChange={e => setPokemonName(e.target.value)}
+                                        className="form-control"></input>
+                                </div>
+                                <button className="btn btn-primary btn-sm float-end mt-1">I choose you!!</button>
+                            </form>
                         </div>
-                        <button className="btn btn-primary btn-sm float-end mt-1">Submit</button>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div className="row align-items-center mt-5">
